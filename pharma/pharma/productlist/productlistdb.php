@@ -32,10 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Execute SQL statement
     if ($stmt->execute()) {
-        echo '<script>
-        window.location.href="C:\wamp64\www\pharma\pharma\productlist\produclist.html";
-        alert("record successful.");
-        </script>';
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
 
         exit();
     } else {
