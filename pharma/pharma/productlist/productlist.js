@@ -1,11 +1,20 @@
 function addProduct() {
+    // Hide the add product form after adding a product
+    document.getElementById("addProductForm").style.display = "none";
+
+    // Extract input field values
     const name = document.getElementById("productName").value;
     const price = document.getElementById("productPrice").value;
     const quantity = document.getElementById("productQuantity").value;
     const expirydate = document.getElementById("Expirydate").value;
 
-    console.log("Form data:", name, price, quantity, expirydate); // Add this line to check form data
+    // Reset input fields
+    document.getElementById("productName").value = "";
+    document.getElementById("productPrice").value = "";
+    document.getElementById("productQuantity").value = "";
+    document.getElementById("Expirydate").value = "";
 
+    // Construct the new row HTML
     const newRow = `
         <tr>
             <td>${name}</td>
@@ -13,24 +22,18 @@ function addProduct() {
             <td>${quantity}</td>
             <td>${expirydate}</td>
             <td>
-                <button onclick="editProduct(this)">Edit</button>
-                <button onclick="deleteProduct(this)">Delete</button>
+                <button class="edit" onclick="editProduct(this)">Edit</button>
+                <button class="delete" onclick="deleteProduct(this)">Delete</button>
             </td>
         </tr>
     `;
 
-    console.log("New row HTML:", newRow); // Add this line to check the new row HTML
-
-    document.getElementById("productTable").insertAdjacentHTML("beforeend", newRow);
-
-    // Hide the add product form after adding a product
-    document.getElementById("addProductForm").style.display = "none";
-
-    // Reset input fields
-    document.getElementById("productName").value = "";
-    document.getElementById("productPrice").value = "";
-    document.getElementById("productQuantity").value = "";
+    // Insert the new row as the first child of tbody
+    const tbody = document.getElementById("productTable");
+    tbody.insertAdjacentHTML("afterbegin", newRow);
 }
+
+
 
 function showAddProductForm() {
     const addProductForm = document.getElementById("addProductForm");
@@ -52,17 +55,22 @@ function editProduct(button) {
         input.value = cell.textContent;
         cell.textContent = "";
         cell.appendChild(input);
+        
     }
+   
 
     // Change "Edit" button to "Save"
     button.textContent = "Save";
     button.setAttribute("onclick", "saveProduct(this)");
+
 }
 
 function saveProduct(button) {
+
     const row = button.parentNode.parentNode;
     const cells = row.cells;
 
+   
     // Replace input fields with text content
     for (let i = 0; i < cells.length - 1; i++) {
         const cell = cells[i];
@@ -71,28 +79,65 @@ function saveProduct(button) {
     }
 
     // Change "Save" button back to "Edit"
-    button.textContent = "Edit";
-    button.setAttribute("onclick", "editProduct(this)");
-}
+    
+ //
+    const productId = row.cells[0].textContent; // Assuming the product ID is in the first cell
 
-function deleteProduct(button) {
-    const row = button.parentNode.parentNode;
-    row.remove();
-}
-// Function to fetch product data from the server
-function fetchProductData() {
-    // Make an AJAX request to fetch product data
+    // Extract updated values from the table cells
+    const name = cells[1].textContent;
+    const price = cells[2].textContent;
+    const quantity = cells[3].textContent;
+    const expiry = cells[4].textContent;
+
+    // Send AJAX request to update product
     const xhr = new XMLHttpRequest();
+    xhr.open("POST", "updateproduct.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                const productData = JSON.parse(xhr.responseText);
-                populateProductTable(productData); // Call function to populate table
+                // Handle response if needed
+                console.log("Product updated successfully");
             } else {
-                console.error("Error fetching product data:", xhr.statusText);
+                // Handle error
+                console.error("Error updating product:", xhr.statusText);
             }
         }
     };
-    xhr.open("GET", "productlistdb.php", true);
-    xhr.send();
+    xhr.send("productId=" + encodeURIComponent(productId) + "&name=" + encodeURIComponent(name) + "&price=" + encodeURIComponent(price) + "&quantity=" + encodeURIComponent(quantity) + "&expiry=" + encodeURIComponent(expiry));
+    button.textContent = "Edit";
+    button.setAttribute("onclick", "editProduct(this)");
 }
+   
+   
+
+
+function deleteProduct(button) {
+    const row = button.parentNode.parentNode;
+    const productId = row.cells[0].textContent;
+    row.remove();
+     // Send AJAX request to deleteProduct.php
+     const xhr = new XMLHttpRequest();
+     xhr.onreadystatechange = function() {
+         if (xhr.readyState === XMLHttpRequest.DONE) {
+             if (xhr.status === 200) {
+                 // Row deleted successfully, remove it from the table
+                 row.remove();
+                 alert(xhr.responseText); // Show success message
+             } else {
+                 // Error occurred, display error message
+                 alert('Error deleting product: ' + xhr.responseText);
+             }
+         }
+     };
+     xhr.open('POST', 'deleteproduct.php');
+     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+     xhr.send('productId=' + encodeURIComponent(productId));
+   
+}
+
+
+
+
+
+
