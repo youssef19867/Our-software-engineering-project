@@ -6,12 +6,30 @@ table {
 th, td {
     border: 1px solid #ddd;
     padding: 8px;
-    text-align: left;
+    text-align: center;
 }
 th {
     background-color: #4CAF50;
     color: #fff;
 }
+
+/* Add horizontal spacing between input elements within the table */
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width:100px;
+}
+h2
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
 td button {
     background-color: #007bff;
     color: #fff;
@@ -22,4 +40,21 @@ td button {
 }
 td button:hover {
     background-color: #0056b3;
+}
+button.edit {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+button.delete {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
 }
