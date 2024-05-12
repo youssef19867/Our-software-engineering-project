@@ -1,0 +1,317 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f4e6; 
+    color: #333;
+}
+
+header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    background-color: #81C784; 
+    overflow: hidden;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    padding: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #66BB6A; 
+}
+
+.search {
+    text-align: right;
+    padding-top: 20px;
+}
+
+.search-form input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+    width: 200px;
+}
+
+.search-form button {
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}
+
+#addCustomerForm {
+    display: none;
+}
+
+#addCustomerBtn {
+    margin-top: 10px;
+}
+
+/* Your existing CSS styles */
+/* ... */
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f4e6; 
+    color: #333;
+}
+
+header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    background-color: #81C784; 
+    overflow: hidden;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    padding: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #66BB6A; 
+}
+
+.search {
+    text-align: right;
+    padding-top: 20px;
+}
+
+.search-form input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+    width: 200px;
+}
+
+.search-form button {
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}
+
+#addCustomerForm {
+    display: none;
+}
+
+#addCustomerBtn {
+    margin-top: 10px;
+}
+
+/* Table styles */
+#customerTable {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#customerTable th, #customerTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#customerTable th {
+    background-color: #f2f2f2;
+}
+
+#customerTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#customerTable tbody tr:hover {
+    background-color: #ddd;
+}
+/* Table styles */
+#resultTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#resultTable th, #resultTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#resultTable th {
+    background-color: #f2f2f2;
+}
+
+#resultTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#resultTable tbody tr:hover {
+    background-color: #ddd;
+}
+#addCustomerBtn {
+    background-color: #007bff; /* Blue */
+    border: none;
+    color: white;
+    padding: 10px 20px; /* Smaller padding */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px; /* Smaller font size */
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#addCustomerBtn:hover {
+    background-color: #0056b3; /* Darker Blue */
+}
+/* CSS for the add customer form */
+#addCustomerForm form {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#addCustomerForm form span {
+    display: inline-block;
+    width: 120px;
+    margin-bottom: 5px;
+}
+
+#addCustomerForm form input[type="text"],
+#addCustomerForm form textarea,
+#addCustomerForm form input[type="date"] {
+    width: calc(100% - 130px);
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#addCustomerForm form button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#addCustomerForm form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+#customerTable {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#customerTable th, #customerTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#customerTable th {
+    background-color: #f2f2f2;
+}
+
+#customerTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#customerTable tbody tr:hover {
+    background-color: #ddd;
+}
+
+#customerTable td button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+#customerTable td button.update {
+    background-color: #007bff; /* Blue */
+    color: white;
+}
+
+#customerTable td button.delete {
+    background-color: #dc3545; /* Red */
+    color: white;
+}
+
+#customerTable td button:hover {
+    opacity: 0.8;
+}
+/* CSS for the back button */
+#backButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745; /* Green color */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+#backButton:hover {
+    background-color: #218838; /* Darker green color on hover */
+}
